@@ -9,6 +9,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class DataImport {
@@ -25,16 +27,22 @@ public class DataImport {
                 long foundCell = 0;
                 String data = null;
 
+
                 for (Row row : sheet) {
                     for (Cell cell : row) {
-                        if (firstRow != row && !isRowEmpty(row) ) {
+                        if (firstRow != row) {
                             switch (cell.getCellType()) {
-                                    case STRING -> data = formatter.formatCellValue(cell).trim();
-                                    case NUMERIC -> data = formatter.formatCellValue(cell).trim();
-                                    case BLANK -> data = formatter.formatCellValue(cell).trim();
+                                case STRING, BLANK -> {
+                                    if (cell.getStringCellValue().matches("(\\s*[0-9]+)\\s*")) {
+                                        data = formatter.formatCellValue(cell).trim();
+                                        numberList.add(Long.parseLong(data));
+                                    } else {
+                                        continue;
+                                    }
+                                }
+                                case NUMERIC -> numberList.add((long) cell.getNumericCellValue());
                             }
                             foundCell = Long.parseLong(data);
-                            numberList.add(foundCell);
                         }
                     }
                 }
@@ -42,16 +50,6 @@ public class DataImport {
         } catch (IOException e) {
             System.err.println("Data nelze nacist: " + e.getMessage());
         }
-    }
-
-    public boolean isRowEmpty(Row row) {
-        for (int cellNum = row.getFirstCellNum(); cellNum < row.getLastCellNum(); cellNum++) {
-            Cell cell = row.getCell(cellNum);
-            if (cell != null) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 
