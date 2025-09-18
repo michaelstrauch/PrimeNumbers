@@ -1,3 +1,5 @@
+package com.my.primenumbers.service;
+
 import java.util.ArrayList;
 import java.util.List;
 

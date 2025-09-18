@@ -1,3 +1,4 @@
+package com.my.primenumbers.repository;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -41,7 +42,7 @@ public class DataImport {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Data nelze nacist: " + e.getMessage());
+            System.err.println("Can't read data: " + e.getMessage());
         }
         return numberList;
     }
