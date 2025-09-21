@@ -5,18 +5,39 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 
 public class PrimeNumbersTest {
 
     @Test
-    void isPrimeNumberTest() {
+    void isPrimeNumberTest_TrueCase_7() {
         PrimeNumbers primeTest = new PrimeNumbers();
         boolean expected = true;
         boolean actual = primeTest.isPrimeNumber(7);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void isPrimeNumberTest_TrueCase_2() {
+        PrimeNumbers primeTest = new PrimeNumbers();
+        boolean expected = true;
+        boolean actual = primeTest.isPrimeNumber(2);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void isPrimeNumberTest_FalseCase_1() {
+        PrimeNumbers notPrimeTest = new PrimeNumbers();
+        boolean expected = false;
+        boolean actual = notPrimeTest.isPrimeNumber(1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void isPrimeNumberTest_FalseCase_15() {
+        PrimeNumbers notPrimeTest = new PrimeNumbers();
+        boolean expected = false;
+        boolean actual = notPrimeTest.isPrimeNumber(15);
         Assertions.assertEquals(expected, actual);
     }
 
