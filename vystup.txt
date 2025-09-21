@@ -1,0 +1,9 @@
+2025-09-21 15:42:50,957 [main]  INFO c.m.p.Main - PrimeNumber: 5645657 
+2025-09-21 15:42:50,958 [main]  INFO c.m.p.Main - PrimeNumber: 15619 
+2025-09-21 15:42:50,958 [main]  INFO c.m.p.Main - PrimeNumber: 1234187 
+2025-09-21 15:42:50,959 [main]  INFO c.m.p.Main - PrimeNumber: 211 
+2025-09-21 15:42:50,959 [main]  INFO c.m.p.Main - PrimeNumber: 7 
+2025-09-21 15:42:50,959 [main]  INFO c.m.p.Main - PrimeNumber: 9788677 
+2025-09-21 15:42:50,959 [main]  INFO c.m.p.Main - PrimeNumber: 23311 
+2025-09-21 15:42:50,959 [main]  INFO c.m.p.Main - PrimeNumber: 54881 
+2025-09-21 15:42:50,959 [main]  INFO c.m.p.Main - PrimeNumber: 2147483647 
